@@ -260,10 +260,10 @@ class CFAPI
     $response = curl_exec($apisess);
 
     /* Error handling */
-    if ($this->isJSON($response))
+    if (!$this->isJSON($response))
     {
       curl_close($apisess);
-	  return FALSE;
+      return FALSE;
     }
 
     curl_close($apisess);
