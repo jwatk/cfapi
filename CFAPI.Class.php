@@ -7,9 +7,8 @@
 
 class CFAPI
 {
-
-  public $url		= "https://www.cloudflare.com/api_json.html";
-  public $cversion	= 'CFAPI-Client 1.0/' . $_SERVER['HTTP_HOST'];
+  public $url;
+  public $cversion;
 
   public $tkn;
   public $email;
@@ -18,6 +17,8 @@ class CFAPI
 
   public function __construct($tkn, $email)
   {
+    $this->url		= "https://www.cloudflare.com/api_json.html";
+    $this->cversion	= 'CFAPI-Client 1.0/' . $_SERVER['HTTP_HOST'];
     $this->tkn = $tkn;
 	$this->email = $email;
     return TRUE;
@@ -51,7 +52,7 @@ class CFAPI
   public function zone_check($zones)
   {
     $filter['a'] = 'zone_check';
-	$filter['zones'] = implode(',' $zones);
+	$filter['zones'] = implode(',', $zones);
 	return $this->APIQuery($filter);
   }
   
