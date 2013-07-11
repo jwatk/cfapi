@@ -1,13 +1,11 @@
-cfapi
-=====
+#cfapi - CloudFlare API Client Library
 
-CloudFlare API - Client Library
+To use, simply include/require the class and instantiate a new object with your API token and CloudFlare email.
 
-To use, simply include/require the class and instanciate a new object with your API token and CloudFlare email
+##Usage
 
-<?PHP
-
-require_once('CFAPI.Class.php');
-$cf = new CFAPI('TOKEN', 'email@domain.com');
-
-?>
+    require_once('CFAPI.Class.php');
+    
+    $cf = new CFAPI('TOKEN', 'email@example.com');
+    
+    $records = $cf->rec_load_all('example.com');
