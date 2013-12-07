@@ -17,7 +17,7 @@ class CFAPI
   public function __construct($tkn, $email)
   {
     $this->url      = "https://www.cloudflare.com/api_json.html";
-    $this->agent	= 'CFAPI-Client 1.0/' . $_SERVER['HTTP_HOST'];
+    $this->agent	= 'CFAPI-Client 1.1/' . $_SERVER['HTTP_HOST'];
     $this->tkn      = $tkn;
     $this->email    = $email;
     return TRUE;
@@ -225,7 +225,7 @@ class CFAPI
     $apisess       = curl_init();
     /* Set generic options */
     curl_setopt($apisess, CURLOPT_URL, $apiurl);
-    curl_setopt($apisess, CURLOPT_USERAGENT, $this->cversion);
+    curl_setopt($apisess, CURLOPT_USERAGENT, $this->agent);
     curl_setopt($apisess, CURLOPT_HEADER, 0);
     curl_setopt($apisess, CURLOPT_FRESH_CONNECT, 1);
     curl_setopt($apisess, CURLOPT_RETURNTRANSFER, 1);
